@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ber-Pancasila dalam Kehidupan Global</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #2c3e50;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tab:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-tab.active {
+            background: #e74c3c;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .content-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #e74c3c;
+            display: inline-block;
+        }
+
+        .card {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .pancasila-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pancasila-item {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .pancasila-item:hover {
+            transform: scale(1.05);
+        }
+
+        .pancasila-item h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .swot-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .swot-table th,
+        .swot-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .swot-table th {
+            background: #2c3e50;
+            color: white;
+            font-weight: 600;
+        }
+
+        .swot-table tr:nth-child(even) {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .swot-table tr:hover {
+            background: rgba(52, 152, 219, 0.2);
+        }
+
+        .quiz-container {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-question h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .quiz-question textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .quiz-question textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .interactive-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .interactive-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-tab {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .pancasila-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🇮🇩 Ber-Pancasila dalam Kehidupan Global</h1>
+            <p>Pendidikan Pancasila dan Kewarganegaraan Kelas XII</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('tujuan')">🎯 Tujuan Pembelajaran</button>
+            <button class="nav-tab" onclick="showSection('kekuatan')">💪 Kekuatan & Peluang</button>
+            <button class="nav-tab" onclick="showSection('tantangan')">⚠️ Tantangan</button>
+            <button class="nav-tab" onclick="showSection('pancasila')">🏛️ Pancasila Global</button>
+            <button class="nav-tab" onclick="showSection('swot')">📊 Analisis SWOT</button>
+            <button class="nav-tab" onclick="showSection('refleksi')">🤔 Refleksi</button>
+        </div>
+
+        <div id="tujuan" class="content-section active">
+            <h2 class="section-title">🎯 Tujuan Pembelajaran</h2>
+            <div class="card">
+                <h3>Setelah mengikuti pembelajaran ini, siswa diharapkan dapat:</h3>
+                <ul>
+                    <li>Menjelaskan kekuatan dan peluang bangsa Indonesia dalam konteks global</li>
+                    <li>Mengidentifikasi kelemahan dan tantangan bangsa Indonesia di era globalisasi</li>
+                    <li>Menjelaskan Pancasila sebagai pemandu dalam kehidupan global</li>
+                    <li>Menyusun analisis SWOT penerapan nilai-nilai Pancasila secara global</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="kekuatan" class="content-section">
+            <h2 class="section-title">💪 Kekuatan dan Peluang Bangsa Indonesia</h2>
+            
+            <div class="card">
+                <h3>🔥 Kekuatan Bangsa Indonesia</h3>
+                <ul>
+                    <li><strong>Pancasila sebagai Ideologi:</strong> Dasar negara yang mempersatukan bangsa dalam keberagaman</li>
+                    <li><strong>Sumber Daya Alam Melimpah:</strong> Hutan tropis, tambang, kekayaan laut</li>
+                    <li><strong>Bonus Demografi:</strong> Mayoritas penduduk usia produktif</li>
+                    <li><strong>Letak Geografis Strategis:</strong> Jalur perdagangan dunia, penghubung Samudra Hindia-Pasifik</li>
+                    <li><strong>Keanekaragaman Budaya:</strong> Soft power diplomasi budaya</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🌟 Peluang di Era Globalisasi</h3>
+                <ul>
+                    <li><strong>Forum Internasional:</strong> Peran strategis di ASEAN, G20, PBB</li>
+                    <li><strong>Ekonomi Digital:</strong> Peluang UMKM dan startup bersaing global</li>
+                    <li><strong>Pariwisata:</strong> Keindahan alam dan budaya diminati dunia</li>
+                    <li><strong>Kerja Sama Pendidikan:</strong> Pertukaran pelajar dan riset internasional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="tantangan" class="content-section">
+            <h2 class="section-title">⚠️ Kelemahan dan Tantangan</h2>
+            
+            <div class="card">
+                <h3>🔴 Kelemahan Internal</h3>
+                <ul>
+                    <li><strong>IPM dan SDM Rendah:</strong> Pendidikan dan kesehatan belum merata</li>
+                    <li><strong>Korupsi dan Maladministrasi:</strong> Merusak kepercayaan publik</li>
+                    <li><strong>Ketimpangan Infrastruktur:</strong> Akses internet dan teknologi belum merata</li>
+                    <li><strong>Literasi Digital Rendah:</strong> Mudah terpapar hoaks dan radikalisme</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🌍 Tantangan Global</h3>
+                <ul>
+                    <li><strong>Globalisasi Nilai:</strong> Individualisme vs identitas bangsa</li>
+                    <li><strong>Radikalisme:</strong> Meningkatkan risiko konflik sosial</li>
+                    <li><strong>Krisis Iklim:</strong> Diplomasi lingkungan dan bencana alam</li>
+                    <li><strong>Disrupsi Teknologi:</strong> Ancaman lapangan kerja tradisional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="pancasila" class="content-section">
+            <h2 class="section-title">🏛️ Pancasila sebagai Pemandu Global</h2>
+            
+            <div class="pancasila-grid">
+                <div class="pancasila-item">
+                    <h4>🕊️ Sila Pertama</h4>
+                    <p>Ketuhanan Yang Maha Esa</p>
+                    <p>Menguatkan etika spiritual dalam teknologi dan harmoni antarumat beragama global</p>
+                </div>
+                
+                <div class="pancasila-item">
+                    <h4>🤝 Sila Kedua</h4>
+                    <p>Kemanusiaan yang Adil dan Beradab</p>
+                    <p>Solidaritas internasional, empati terhadap HAM dan pengungsi global</p>
+                </div>
+                
+                <div class="pancasila-item">
+                    <h4>🇮🇩 Sila Ketiga</h4>
+                    <p>Persatuan Indonesia</p>
+                    <p>Perekat identitas nasional, menolak segregasi di era globalisasi</p>
+                </div>
+                
+                <div class="pancasila-item">
+                    <h4>🗳️ Sila Keempat</h4>
+                    <p>Kerakyatan yang Dipimpin Hikmat</p>
+                    <p>Budaya demokrasi deliberatif, partisipasi dalam organisasi internasional</p>
+                </div>
+                
+                <div class="pancasila-item">
+                    <h4>⚖️ Sila Kelima</h4>
+                    <p>Keadilan Sosial bagi Seluruh Rakyat</p>
+                    <p>Distribusi sumber daya adil, keadilan sistem ekonomi dunia</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="swot" class="content-section">
+            <h2 class="section-title">📊 Analisis SWOT</h2>
+            
+            <div class="card">
+                <h3>Contoh: Pancasila Menghadapi Hoaks di Dunia Digital</h3>
+                <table class="swot-table">
+                    <thead>
+                        <tr>
+                            <th>Kategori SWOT</th>
+                            <th>Analisis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Strengths (Kekuatan)</strong></td>
+                            <td>Nilai kejujuran, gotong royong, dan tanggung jawab sosial sebagai filter informasi</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weaknesses (Kelemahan)</strong></td>
+                            <td>Kurangnya kemampuan verifikasi informasi, rendahnya literasi digital</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Opportunities (Peluang)</strong></td>
+                            <td>Edukasi publik melalui platform digital, gerakan literasi oleh pelajar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Threats (Ancaman)</strong></td>
+                            <td>Ujaran kebencian, polarisasi sosial, ancaman terhadap persatuan bangsa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>📝 Buat Analisis SWOT Sendiri</h3>
+                <p>Pilih salah satu isu global dan buat analisis SWOT berdasarkan nilai-nilai Pancasila:</p>
+                <div style="margin-top: 15px;">
+                    <button class="interactive-btn" onclick="generateSWOT('perubahan-iklim')">🌍 Perubahan Iklim</button>
+                    <button class="interactive-btn" onclick="generateSWOT('kemiskinan')">💰 Kemiskinan Global</button>
+                    <button class="interactive-btn" onclick="generateSWOT('teknologi')">💻 Kesenjangan Digital</button>
+                </div>
+                <div id="swot-result" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+
+        <div id="refleksi" class="content-section">
+            <h2 class="section-title">🤔 Refleksi dan Evaluasi</h2>
+            
+            <div class="quiz-container">
+                <h3>💭 Pertanyaan Refleksi</h3>
+                
+                <div class="quiz-question">
+                    <h4>1. Bagaimana posisi strategis Indonesia memberikan peluang global dan peran Pancasila dalam memanfaatkannya?</h4>
+                    <textarea placeholder="Tulis refleksi Anda di sini..." id="answer1"></textarea>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>2. Identifikasi dua tantangan utama Indonesia di era globalisasi dan bagaimana Pancasila dapat mengatasinya?</h4>
+                    <textarea placeholder="Tulis refleksi Anda di sini..." id="answer2"></textarea>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>3. Nilai Pancasila mana yang paling relevan menghadapi hoaks di era digital? Berikan contoh penerapannya.</h4>
+                    <textarea placeholder="Tulis refleksi Anda di sini..." id="answer3"></textarea>
+                </div>
+                
+                <div class="quiz-question">
+                    <h4>4. Sebagai pelajar Indonesia, bagaimana Anda dapat memperkenalkan nilai-nilai Pancasila di lingkungan global?</h4>
+                    <textarea placeholder="Tulis refleksi Anda di sini..." id="answer4"></textarea>
+                </div>
+                
+                <button class="interactive-btn" onclick="saveReflection()">💾 Simpan Refleksi</button>
+                <button class="interactive-btn" onclick="resetReflection()">🔄 Reset Jawaban</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 'tujuan';
+        let reflectionData = {};
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Update progress
+            updateProgress(sectionId);
+            
+            currentSection = sectionId;
+        }
+
+        function updateProgress(sectionId) {
+            const sections = ['tujuan', 'kekuatan', 'tantangan', 'pancasila', 'swot', 'refleksi'];
+            const currentIndex = sections.indexOf(sectionId);
+            const progress = ((currentIndex + 1) / sections.length) * 100;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function generateSWOT(issue) {
+            const swotData = {
+                'perubahan-iklim': {
+                    title: 'Perubahan Iklim',
+                    strengths: 'Kekayaan hutan tropis, komitmen terhadap lingkungan berdasarkan sila pertama',
+                    weaknesses: 'Emisi tinggi dari deforestasi, infrastruktur rentan bencana',
+                    opportunities: 'Diplomasi iklim, ekonomi hijau, teknologi ramah lingkungan',
+                    threats: 'Bencana alam, tenggelamnya pulau-pulau kecil, krisis pangan'
+                },
+                'kemiskinan': {
+                    title: 'Kemiskinan Global',
+                    strengths: 'Nilai gotong royong, sistem ekonomi kerakyatan, keadilan sosial',
+                    weaknesses: 'Kesenjangan ekonomi, akses terbatas ke layanan dasar',
+                    opportunities: 'Kerja sama internasional, program pembangunan berkelanjutan',
+                    threats: 'Ketimpangan global, konflik sosial, migrasi massal'
+                },
+                'teknologi': {
+                    title: 'Kesenjangan Digital',
+                    strengths: 'Bonus demografi, kreativitas generasi muda, nilai persatuan',
+                    weaknesses: 'Infrastruktur digital terbatas, literasi teknologi rendah',
+                    opportunities: 'Investasi teknologi, pendidikan digital, startup lokal',
+                    threats: 'Dominasi teknologi asing, kesenjangan akses, cyber crime'
+                }
+            };
+
+            const data = swotData[issue];
+            const resultHTML = `
+                <h4>📊 Analisis SWOT: ${data.title}</h4>
+                <table class="swot-table">
+                    <tr><th>Strengths</th><td>${data.strengths}</td></tr>
+                    <tr><th>Weaknesses</th><td>${data.weaknesses}</td></tr>
+                    <tr><th>Opportunities</th><td>${data.opportunities}</td></tr>
+                    <tr><th>Threats</th><td>${data.threats}</td></tr>
+                </table>
+            `;
+            
+            document.getElementById('swot-result').innerHTML = resultHTML;
+        }
+
+        function saveReflection() {
+            reflectionData = {
+                answer1: document.getElementById('answer1').value,
+                answer2: document.getElementById('answer2').value,
+                answer3: document.getElementById('answer3').value,
+                answer4: document.getElementById('answer4').value,
+                timestamp: new Date().toLocaleString()
+            };
+            
+            alert('✅ Refleksi berhasil disimpan! Data tersimpan dalam sesi browser ini.');
+            console.log('Reflection saved:', reflectionData);
+        }
+
+        function resetReflection() {
+            if (confirm('Apakah Anda yakin ingin mereset semua jawaban?')) {
+                document.querySelectorAll('textarea').forEach(textarea => {
+                    textarea.value = '';
+                });
+                reflectionData = {};
+                alert('🔄 Semua jawaban telah direset.');
+            }
+        }
+
+        // Initialize progress
+        updateProgress('tujuan');
+
+        // Auto-save reflection as user types
+        document.querySelectorAll('textarea').forEach(textarea => {
+            textarea.addEventListener('input', function() {
+                // Auto-save functionality (stored in memory)
+                const tempData = {
+                    [this.id]: this.value,
+                    lastUpdate: new Date().toLocaleString()
+                };
+                // This would be stored in memory for the session
+            });
+        });
+    </script>
+</body>
+</html>
